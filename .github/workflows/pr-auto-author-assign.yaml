@@ -1,14 +1,16 @@
 name: Auto Assign Author
 
 on:
-  push:
   pull_request_target:
-    types: [opened]
+    types: [opened, reopened]
+
+permissions:
+  pull-requests: write
 
 jobs:
-  auto-author-assign:
+  pr-auto-author-assign:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
-      - uses: technote-space/assign-author@v1
+      - uses: toshimaru/auto-author-assign@v2.1.0
