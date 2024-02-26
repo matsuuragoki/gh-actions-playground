@@ -2,7 +2,10 @@ name: Auto Assign Author
 
 on:
   pull_request_target:
-    types: [opened]
+    types: [opened, reopened]
+
+permissions:
+  pull-requests: write
 
 jobs:
   pr-auto-author-assign:
@@ -10,4 +13,4 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: technote-space/assign-author@v1
+      - uses: toshimaru/auto-author-assign@v2.1.0
